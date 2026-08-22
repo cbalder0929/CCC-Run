@@ -1,7 +1,7 @@
 import { IconPin } from "./icons";
 
 const DIRECTIONS_URL =
-  "https://www.google.com/maps/dir/?api=1&origin=Columbia+College+Chicago+Student+Center&destination=Buckingham+Fountain+Chicago";
+  "https://www.google.com/maps/dir/?api=1&destination=Columbia+College+Chicago+Student+Center";
 
 export default function Location() {
   return (

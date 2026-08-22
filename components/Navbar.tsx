@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 
 const LINKS = [
@@ -16,8 +17,15 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b-2 border-ink bg-paper/95 backdrop-blur">
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3 sm:px-8">
-        <a href="#top" className="font-brush text-2xl leading-none text-ink sm:text-3xl">
-          CCC <span className="text-cobalt">Run</span> Club
+        <a href="#top" className="block">
+          <Image
+            src="/CCCRUNCLUBlogo.png"
+            alt="CCC Run Club — Columbia College Chicago"
+            width={2172}
+            height={724}
+            priority
+            className="h-[47px] w-auto sm:h-[57px]"
+          />
         </a>
 
         <ul className="hidden items-center gap-8 md:flex">

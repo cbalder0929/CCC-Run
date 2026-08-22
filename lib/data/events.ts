@@ -12,6 +12,11 @@ const WEDNESDAY = 3;
 const START_HOUR = 12;
 const START_MINUTE = 0;
 const DURATION_MINUTES = 30;
+const SEASON_START = new Date("2026-09-09T00:00:00");
+
+function effectiveFrom(from: Date): Date {
+  return from < SEASON_START ? SEASON_START : from;
+}
 
 function buildEvent(occurrence: Date, index: number): RunEvent {
   const end = new Date(occurrence.getTime() + DURATION_MINUTES * 60_000);
@@ -34,13 +39,13 @@ function buildEvent(occurrence: Date, index: number): RunEvent {
 }
 
 export function getNextRun(from: Date = new Date()): RunEvent {
-  const next = getNextWeekday(WEDNESDAY, START_HOUR, START_MINUTE, from);
+  const next = getNextWeekday(WEDNESDAY, START_HOUR, START_MINUTE, effectiveFrom(from));
   return buildEvent(next, 0);
 }
 
 export function getUpcomingRuns(count = 4, from: Date = new Date()): RunEvent[] {
   const runs: RunEvent[] = [];
-  let cursor = from;
+  let cursor = effectiveFrom(from);
   for (let i = 0; i < count; i++) {
     const occurrence = getNextWeekday(WEDNESDAY, START_HOUR, START_MINUTE, cursor);
     runs.push(buildEvent(occurrence, i));
