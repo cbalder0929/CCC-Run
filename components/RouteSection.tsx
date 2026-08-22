@@ -28,7 +28,7 @@ export default function RouteSection() {
               <p className="text-xs uppercase tracking-widest text-ink/50">each way</p>
             </div>
             <div>
-              <p className="font-display text-2xl">~30 min</p>
+              <p className="font-display text-2xl">~60 min</p>
               <p className="text-xs uppercase tracking-widest text-ink/50">total, there &amp; back</p>
             </div>
           </div>

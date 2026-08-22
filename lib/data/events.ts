@@ -11,7 +11,7 @@ import { getNextWeekday } from "@/lib/utils/date";
 const WEDNESDAY = 3;
 const START_HOUR = 12;
 const START_MINUTE = 0;
-const DURATION_MINUTES = 30;
+const DURATION_MINUTES = 60;
 const SEASON_START = new Date("2026-09-09T00:00:00");
 
 function effectiveFrom(from: Date): Date {

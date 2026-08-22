@@ -27,7 +27,7 @@ function foldLine(line: string): string {
 
 /** Builds a complete .ics file body for a single (optionally recurring) event. */
 export function buildICS(event: CalendarEventInput, uid?: string): string {
-  const reminder = event.reminderMinutes ?? 60;
+  const reminders = event.reminderMinutesList ?? [60];
   const lines: string[] = [
     "BEGIN:VCALENDAR",
     "VERSION:2.0",
@@ -48,15 +48,17 @@ export function buildICS(event: CalendarEventInput, uid?: string): string {
     lines.push("RRULE:FREQ=WEEKLY");
   }
 
-  lines.push(
-    "BEGIN:VALARM",
-    "ACTION:DISPLAY",
-    `DESCRIPTION:${escapeICSText(event.title)} starts in ${reminder} minutes`,
-    `TRIGGER:-PT${reminder}M`,
-    "END:VALARM",
-    "END:VEVENT",
-    "END:VCALENDAR"
-  );
+  for (const reminder of reminders) {
+    lines.push(
+      "BEGIN:VALARM",
+      "ACTION:DISPLAY",
+      `DESCRIPTION:${escapeICSText(event.title)} starts in ${reminder} minutes`,
+      `TRIGGER:-PT${reminder}M`,
+      "END:VALARM"
+    );
+  }
+
+  lines.push("END:VEVENT", "END:VCALENDAR");
 
   return lines.map(foldLine).join("\r\n") + "\r\n";
 }

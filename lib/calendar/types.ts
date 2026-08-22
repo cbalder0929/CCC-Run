@@ -7,7 +7,8 @@ export interface CalendarEventInput {
   /** ISO 8601 datetime string, e.g. "2026-08-26T17:30:00.000Z" (UTC) */
   endTime: string;
   recurrence?: "WEEKLY" | "NONE";
-  reminderMinutes?: number;
+  /** Minutes before start to trigger a reminder. One VALARM is added per entry. */
+  reminderMinutesList?: number[];
 }
 
 export interface CalendarProvider {

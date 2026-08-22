@@ -18,7 +18,7 @@ export function runEventToCalendarInput(run: RunEvent): CalendarEventInput {
     startTime: run.startTime,
     endTime: run.endTime,
     recurrence: run.recurrence === "WEEKLY" ? "WEEKLY" : "NONE",
-    reminderMinutes: 60,
+    reminderMinutesList: [30, 60],
   };
 }
 
