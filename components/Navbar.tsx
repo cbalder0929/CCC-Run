@@ -7,7 +7,6 @@ const LINKS = [
   { href: "#next-run", label: "Home" },
   { href: "#schedule", label: "Schedule" },
   { href: "#route", label: "Route" },
-  { href: "#calendar", label: "Calendar" },
   { href: "#join", label: "Join" },
 ];
 
