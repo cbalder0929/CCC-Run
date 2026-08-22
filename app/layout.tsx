@@ -20,7 +20,7 @@ const body = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "CCC Run Club — Run. Connect. Soak up the sun.",
+  title: "Chicago Run Club",
   description:
     "A casual student run from Columbia College Chicago to Buckingham Fountain and back. Every Wednesday at 12:00 PM. No experience required — just show up.",
   metadataBase: new URL("https://cccrunclub.org"),

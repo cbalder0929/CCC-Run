@@ -6,7 +6,7 @@ export default function NextRun({ run }: { run: RunEvent }) {
   const date = new Date(run.startTime);
 
   return (
-    <section id="next-run" className="px-5 py-16 sm:px-8 sm:py-24">
+    <section id="next-run" className="px-5 pb-16 sm:px-8 sm:pb-24">
       <div className="mx-auto max-w-4xl">
         <div className="animate-fade-up rounded-lg border-2 border-ink bg-ink p-8 text-paper shadow-[8px_8px_0_0_#1B2FC4] sm:p-12">
           <span className="brush-tag font-display text-xs tracking-[0.3em]">NEXT RUN</span>

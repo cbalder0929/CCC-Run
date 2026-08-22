@@ -13,7 +13,7 @@ export default function Hero({ run }: { run: RunEvent }) {
       <NextRun run={run} />
 
       <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 px-5 sm:px-8 lg:grid-cols-[1.1fr_0.9fr]">
-        <div className="animate-fade-up">
+        <div className="relative z-10 animate-fade-up">
           <div className="mt-6 flex flex-wrap gap-4">
             <a href="#join" className="btn-primary">
               Join the Run
