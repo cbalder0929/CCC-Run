@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-ink/10;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #f3eee4;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: #1b2fc4;
+    color: #f3eee4;
+  }
+
+  :focus-visible {
+    outline: 3px solid #1b2fc4;
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  /* Rough painted-block background used behind small labels (START!, Finish!) */
+  .brush-tag {
+    position: relative;
+    display: inline-block;
+    color: #f3eee4;
+    padding: 0.35em 0.9em;
+    background: #1b2fc4;
+    clip-path: polygon(
+      1.5% 15%,
+      98% 0%,
+      100% 82%,
+      3% 100%
+    );
+  }
+
+  /* Thicker underline stroke for headline emphasis */
+  .brush-underline {
+    position: relative;
+    display: inline-block;
+  }
+
+  .brush-underline::after {
+    content: "";
+    position: absolute;
+    left: -2%;
+    right: -2%;
+    bottom: -0.12em;
+    height: 0.28em;
+    background: #1b2fc4;
+    clip-path: polygon(0% 30%, 100% 0%, 100% 70%, 0% 100%);
+    z-index: -1;
+  }
+
+  .paper-grain {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-sm bg-cobalt px-7 py-4 font-display text-lg tracking-wide text-paper transition-all duration-200 hover:-translate-y-0.5 hover:bg-cobalt-dark hover:shadow-lg active:translate-y-0;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-sm border-2 border-ink bg-transparent px-7 py-4 font-display text-lg tracking-wide text-ink transition-all duration-200 hover:-translate-y-0.5 hover:bg-ink hover:text-paper active:translate-y-0;
+  }
+
+  .btn-outline-light {
+    @apply inline-flex items-center justify-center gap-2 rounded-sm border-2 border-paper bg-transparent px-7 py-4 font-display text-lg tracking-wide text-paper transition-all duration-200 hover:-translate-y-0.5 hover:bg-paper hover:text-ink active:translate-y-0;
+  }
+
+  .section-label {
+    @apply font-display text-sm tracking-[0.35em] text-cobalt;
+  }
+}
+
+@layer utilities {
+  .animate-delay-100 {
+    animation-delay: 100ms;
+  }
+  .animate-delay-200 {
+    animation-delay: 200ms;
+  }
+  .animate-delay-300 {
+    animation-delay: 300ms;
+  }
+  .animate-delay-400 {
+    animation-delay: 400ms;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
